@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <title>{% block title %}Your Website Title{% endblock %}</title>
+</head>
+<body>
+
+    <header style="background-image: url('{{ url_for('static', filename='background.jpg') }}');">
+        <h1><a href="{{ url_for('home') }}">Your Name - Web Developer</a></h1>
+        <p>Welcome to my interactive website!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About Me</a></li>
+            <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="content">
+        {% block content %}{% endblock %}
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" target="_blank"><img src="{{ url_for('static', filename='icon_facebook.png') }}" alt="Facebook"></a>
+            <a href="#" target="_blank"><img src="{{ url_for('static', filename='icon_twitter.png') }}" alt="Twitter"></a>
+            <a href="#" target="_blank"><img src="{{ url_for('static', filename='icon_linkedin.png') }}" alt="LinkedIn"></a>
+        </div>
+        <p>&copy; 2023 Your Name - Web Developer</p>
+    </footer>
+
+</body>
+</html>
